@@ -15,4 +15,4 @@ The rules are the same as the classic game:
 
 The computer chooses first; just follow the prompts.
 
-Built with Python 3.
+Built with Python 3.ß
