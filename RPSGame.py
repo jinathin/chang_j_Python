@@ -6,6 +6,31 @@ from random import randint
 choices = ["Rock", "Paper", "Scissors"]
 player = False
 
+# def win or lose function
+def winorlose(status):
+    print("Called win or lose function")
+    print("********************************")
+    print("You", status, " ! Would you like to play again?")
+    choice = input("Y / N: ")
+
+    #reset the lives
+    if choice == "Y" or choice =="y":
+        # change global variables
+        global player_life
+        global computer_life
+        global player
+        global computer
+
+        player_life = 3
+        computer_life = 3
+        player = False
+        computer = choices[randint(0, 2)]
+
+    elif choice == "N" or choice =="n":
+        print("You choose to quit!")
+        print("**********************")
+        exit()
+
 # make the computer choose a weapon choices array at random
 computer_choice = choices[randint(0,2)]
 
@@ -27,7 +52,7 @@ while player is False:
     # print the choice to the terminal window
     print("Player chooses", player, "\n")
 
-    #quit game
+    #quit Game
     if player == "quit":
             exit()
     #choices of player and computer
@@ -77,38 +102,10 @@ while player is False:
     computer_choice = choices [randint(0, 2)]
 
     # set to restart or to quit when game over (player loses)    
-    while player_life == 0:
-        print()
-        print("Your lives: ", player_life)
-        print("Computer lives: ", computer_life)
-        print("Game over, Computer won!! Humanity is doomed!")
-        player = input("restart or quit ??\n")
-        if player == "restart":
-            player_life = 3
-            computer_life = 3
-            player = False
-            computer_choice = choices[randint(0,2)]
-
-        if player == "quit":
-                exit()
-        else:
-            print()
+    if player_life == 0:
+        winorlose("lose")
 
 
     # set to restart or to quit when game over (computer loses)  
-    while computer_life == 0:
-        print()
-        print("Your lives: ", player_life)
-        print("Computer lives: ", computer_life)
-        print("You beat the computer!!! Humanity wins!")
-        player = input("restart or quit ??\n")
-        if player == "restart":
-                player_life = 3
-                computer_life = 3
-                player = False
-                computer_choice = choices[randint(0,2)]
-        if player == "quit":
-                exit()
-        else:
-            print()
-
+    if computer_life == 0:
+        winorlose("lose")
