@@ -7,14 +7,14 @@ choices = ["Rock", "Paper", "Scissors"]
 player = False
 
 # make the computer choose a weapon choices array at random
-computer_choice = choices [randint(0,2)]
+computer_choice = choices[randint(0,2)]
 
-#set the lives for player and computer
+# set the lives for player and computer
 player_life = 3
 computer_life = 3
 
-# print the choice to the terminal window
-print("Computer chooses: ", computer_choice)
+
+
 
 # set up our loop
 while player is False:
@@ -24,6 +24,8 @@ while player is False:
     print("Computer lives:", computer_life)
     print("Choose your weapon!")
     player = input("Rock, Paper or Scissors ?\n")
+    # print the choice to the terminal window
+    print("Player chooses", player, "\n")
 
     #quit game
     if player == "quit":
@@ -90,7 +92,7 @@ while player is False:
         if player == "quit":
                 exit()
         else:
-            print("Check your spelling ...")
+            print()
 
 
     # set to restart or to quit when game over (computer loses)  
@@ -108,5 +110,5 @@ while player is False:
         if player == "quit":
                 exit()
         else:
-            print("Check your spelling ...")
+            print()
 
